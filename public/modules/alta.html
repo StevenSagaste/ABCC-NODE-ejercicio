@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/index.js"></script>
+    <script src="../js/alta.js"></script>
+    <title>Alta</title>
+</head>
+<body onload="alerta()">
+    <h1>Formulario de Alta</h1>
+    <div class="container">
+        <form class="formulario">
+            <label for="sku">Sku</label>
+            <input type="text" name="sku" id="sku" onkeydown="fetchArticulo()">
+            <br>
+            <input type="checkbox" name="desc" disabled>
+            <label for="desc">Descontinuado</label>
+            <br>
+            <label for="articulo">Artículo</label>
+            <input type="text" name="articulo" disabled>
+            <br>
+            <label for="marca">Marca</label>
+            <input type="text" name="marca" disabled>
+            <br>
+            <label for="modelo">Modelo</label>
+            <input type="text" name="modelo" disabled>
+            <br>
+            <label for="departamento">Departamento</label>
+            <select name="departamento" id="departemento" disabled></select>
+            <br>
+            <label for="clase">Clase</label>
+            <select name="clase" id="clase" disabled></select>
+            <br>
+            <label for="familia">Familia</label>
+            <select name="familia" id="familia" disabled></select>
+            <br>
+            <col>
+            <label for="stock">Stock</label>
+            <input type="number" name="stock" id="stock" disabled>
+            <label for="cantidad">Cantidad</label>
+            <input type="number" name="cantidad" id="cantidad" disabled>
+            <br>
+            <label for="fechaAlta">Fecha Alta</label>
+            <input type="date" name="fechaAlta" id="fechaAlta" disabled>
+            <label for="fechaBaja">Fecha Baja</label>
+            <input type="date" name="fechaBaja" id="fechaBaja" disabled>
+            <br>
+            <button disabled>Guardar</button>
+        </form>
+    </div>
+</body>
+</html>
