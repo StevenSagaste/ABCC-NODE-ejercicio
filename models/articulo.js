@@ -2,11 +2,35 @@ const {pool} = require('../db/cnn');
 
 async function getArticulos() {
 
-    let conn = await pool.getConnection();
-    const res = await conn.query("CALL `mydb2`.get_articulos();");
-    console.log(res[0]);
-    conn.end();
-    return res[0]
+    try {
+
+        let conn = await pool.getConnection();
+        const res = await conn.query("CALL `mydb2`.get_articulos();");
+        console.log(res[0]);
+        conn.end();
+        return res[0]
+        
+    } catch (error) {
+
+       return {msg:'error de consulta -' + error.text}
+    }
+
+}
+
+async function getArticulosBySku(sku) {
+
+    try {
+
+        let conn = await pool.getConnection();
+        const res = await conn.query("CALL `mydb2`.get_articuloBySku(?);", [sku]);
+        console.log(res[0]);
+        conn.end();
+        return res[0]
+        
+    } catch (error) {
+
+        return {msg:'error de consulta -' + error.text}
+    }
 
 }
 
@@ -102,5 +126,6 @@ module.exports = {
     getArticulos,
     insertArticulos,
     updateArticulos,
-    deleteArticulos
+    deleteArticulos,
+    getArticulosBySku
 }; 

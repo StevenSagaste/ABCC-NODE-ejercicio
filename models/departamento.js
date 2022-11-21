@@ -34,6 +34,4 @@ async function insertArticulos(id,nombre) {
 module.exports = { 
     getArticulos,
     insertArticulos,
-    updateArticulos,
-    deleteArticulos
 };
