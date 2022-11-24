@@ -14,6 +14,8 @@ class Server{
         this.paths = {
             articulo: '/api/articulo',
             departamento:'/api/departamento',
+            clase: '/api/clase',
+            familia: '/api/familia',
         }
 
         this.ConnectDB();
@@ -49,6 +51,8 @@ class Server{
 
         this.app.use(this.paths.articulo, require('../routes/articulo'));
         this.app.use(this.paths.departamento, require('../routes/departamento'));
+        this.app.use(this.paths.clase, require('../routes/clase'));
+        this.app.use(this.paths.familia, require('../routes/familia'));
         
     }
 

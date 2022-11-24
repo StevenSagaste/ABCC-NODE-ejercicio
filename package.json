@@ -17,5 +17,14 @@
     "mongoose": "^6.7.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.25.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StevenSagaste/ABCC-NODE-ejercicio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/StevenSagaste/ABCC-NODE-ejercicio/issues"
+  },
+  "homepage": "https://github.com/StevenSagaste/ABCC-NODE-ejercicio#readme",
+  "devDependencies": {}
 }

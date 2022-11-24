@@ -12,48 +12,50 @@
         <form class="formulario">
             <label for="sku">Sku</label>
             <input type="text" name="sku" id="sku">
-            <input type="button" value="verificar" onclick="fetchArticulo()">
+            <input type="button" id="verificador" value="verificar" onclick="verificar()">
             <br>
             <input type="checkbox" name="desc" disabled>
             <label for="desc">Descontinuado</label>
             <br>
             <label for="articulo">Artículo</label>
-            <input type="text" name="articulo" id="articulo" disabled>
+            <input type="text" name="articulo" id="articulo" disabled required>
             <br>
             <label for="marca">Marca</label>
-            <input type="text" name="marca" id="marca" disabled>
+            <input type="text" name="marca" id="marca" disabled required>
             <br>
             <label for="modelo">Modelo</label>
-            <input type="text" name="modelo" id="modelo" disabled>
+            <input type="text" name="modelo" id="modelo" disabled required>
             <br>
-            <label for="departamento">Departamento</label>
-            <select name="departamento" id="departemento" disabled></select>
+            <label for="departamento"    >Departamento</label>
+            <select name="departamento"  id="departemento"      disabled required onchange="obtenerClases()">abc</select>
             <br>
-            <label for="clase">Clase</label>
-            <select name="clase" id="clase" disabled></select>
+            <label for="clase"           >Clase</label>
+            <select name="clase"         id="clase"             disabled required onchange="obtenerFamilias()">abc</select>
             <br>
-            <label for="familia">Familia</label>
-            <select name="familia" id="familia" disabled></select>
+            <label for="familia"         >Familia</label>
+            <select name="familia"       id="familia"           disabled required onchange="enableStockCant()">abc</select>
             <br>
             <col>
-            <label for="stock">Stock</label>
-            <input type="number" name="stock" id="stock" disabled>
-            <label for="cantidad">Cantidad</label>
-            <input type="number" name="cantidad" id="cantidad" disabled>
+            <label for="stock"      >Stock</label>
+            <input type="number"    name="stock"        id="stock"      disabled    value="0" required>
+            <label for="cantidad"   >Cantidad</label>
+            <input type="number"    name="cantidad"     id="cantidad"   disabled    value="0" required>
             <br>
             <label for="fechaAlta">Fecha Alta</label>
             <input type="date" name="fechaAlta" id="fechaAlta" disabled>
             <label for="fechaBaja">Fecha Baja</label>
             <input type="date" name="fechaBaja" id="fechaBaja" disabled>
             <br>
-            <button disabled>Guardar</button>
+            <!-- <input id="guardar" type="button" onclick="guardarArticulo()" value="Guardar" disabled> -->
         </form>
+        <button type="submit" id="guardar" onclick="guardarArticulo()" disabled>Guardar</button>
+        <button id="cancelar" onclick="cancelar()" disabled>Cancelar</button>
+        <form action=""></form>
     </div>
     <script src="../js/index.js"></script>
     <script src="../js/alta.js"></script>
-    <!-- jQuery first para framework Jquery, Popper.js para ToolTips, y Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
+            integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk="
+            crossorigin="anonymous"></script>
 </body>
 </html>

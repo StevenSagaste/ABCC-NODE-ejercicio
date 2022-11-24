@@ -11,11 +11,3 @@ router.get('/', getDepartamento );
 router.post('/', saveDepartamento);
 
 module.exports = router;
-
-// router.post('/', [ 
-//     // validarJWT,
-//     check('cliente','El nombre del cliente es obligatorio').not().isEmpty(),
-//     check('cantidad','Se necesita una cantidad').not().isEmpty(),
-//     check('producto').custom( existeProductoPorId ),
-//     validarCampos
-// ], crearPedido );

@@ -1,6 +1,6 @@
 const {pool} = require('../db/cnn');
 
-async function getArticulos() {
+async function getDepartamentos() {
 
     let conn = await pool.getConnection();
     const res = await conn.query("CALL `mydb2`.get_departamentos();");
@@ -10,7 +10,7 @@ async function getArticulos() {
 
 }
 
-async function insertArticulos(id,nombre) {
+async function insertDepartamentos(id,nombre) {
 
     try {
         let conn = await pool.getConnection();
@@ -32,6 +32,6 @@ async function insertArticulos(id,nombre) {
 }
 
 module.exports = { 
-    getArticulos,
-    insertArticulos,
+    getDepartamentos,
+    insertDepartamentos,
 };

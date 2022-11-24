@@ -23,7 +23,7 @@ async function getArticulosBySku(sku) {
 
         let conn = await pool.getConnection();
         const res = await conn.query("CALL `mydb2`.get_articuloBySku(?);", [sku]);
-        console.log(res[0]);
+        console.log(res[0].sku);
         conn.end();
         return res[0]
         
@@ -109,7 +109,7 @@ async function deleteArticulos(sku) {
     try {
         
         let conn = await pool.getConnection();
-        const res = await conn.query("DELETE FROM `mydb2`.articulo WHERE sku=?;", [sku]);
+        const res = await conn.query("CALL `mydb2`.delete_articulos(?);", [sku]);
         console.log(res[0]);
         conn.end();
         return {msg:'eliminado con exito', payload: res[0]};
