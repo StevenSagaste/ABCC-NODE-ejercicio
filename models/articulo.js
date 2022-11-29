@@ -1,14 +1,16 @@
 const {pool} = require('../db/cnn');
 
+//bigNumberStrings: true,
+
 async function getArticulos() {
 
     try {
 
         let conn = await pool.getConnection();
-        const res = await conn.query("CALL `mydb2`.get_articulos();");
-        console.log(res[0]);
+        const res = await conn.query({supportBigNumbers: true, sql:"CALL `mydb2`.get_articulos();"});
+        console.log(res);
         conn.end();
-        return res[0]
+        return res
         
     } catch (error) {
 
@@ -23,9 +25,13 @@ async function getArticulosBySku(sku) {
 
         let conn = await pool.getConnection();
         const res = await conn.query("CALL `mydb2`.get_articuloBySku(?);", [sku]);
-        console.log(res[0].sku);
+        // console.log(res);
         conn.end();
-        return res[0]
+        if (res[0].length > 0) {
+            let r = res[0].find( e => e.sku === sku);
+            console.log(r);
+            return r;
+        } else return {msg:"Sin resultados"}
         
     } catch (error) {
 
@@ -120,6 +126,26 @@ async function deleteArticulos(sku) {
 
 }
 
+async function getDepClsFam(dep,cls,fam) {
+
+    try {
+        
+        let conn = await pool.getConnection();
+        const res = await conn.query("CALL `mydb2`.get_DepClsFam(?,?,?);", [dep,cls,fam]);
+        console.log(res[0]);
+        conn.end();
+        if (res[0].length > 0) {
+            let r = res[0]//.find( e => e.departamento === dep );
+            console.log(r);
+            return r;
+        } else return {msg:'Error en el resultado: resultado vacio - uno de los campos llama a un elemento inexistente'};
+        
+    } catch (error) {
+        return {msg:'error al consultar -' + error.text}
+    }
+
+}
+
 
 
 module.exports = { 
@@ -127,5 +153,6 @@ module.exports = {
     insertArticulos,
     updateArticulos,
     deleteArticulos,
-    getArticulosBySku
+    getArticulosBySku,
+    getDepClsFam
 }; 

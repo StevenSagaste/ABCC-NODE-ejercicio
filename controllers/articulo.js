@@ -1,6 +1,6 @@
 const { request, response } = require('express');
 const { body } = require('express-validator');
-const { getArticulos, insertArticulos, updateArticulos, deleteArticulos, getArticulosBySku } = require('../models/articulo');
+const { getArticulos, insertArticulos, updateArticulos, deleteArticulos, getArticulosBySku, getDepClsFam } = require('../models/articulo');
 
 
 
@@ -18,13 +18,10 @@ const getArticuloBySku = async( req = request, res) => {
     const { sku } = req.params;
 
     if (sku.length === 6) {
+
         const articulos = await getArticulosBySku(sku);
-        if (articulos.length > 0) {
-            res.json(articulos);
-        }
-        else {
-            res.json({msg:" Sin resultados "});
-        }
+        res.json(articulos);
+
     } else if(sku.length > 6) {
         res.json({msg:" El sku es demaciado largo "});
     }
@@ -66,11 +63,19 @@ const deleteArticulo = async( req, res) => {
 
 }
 
+const articuloGetDepClsFam = async(req, res) =>{
+
+    const {dep,cls,fam} = req.body; 
+    const dcf = await getDepClsFam(dep,cls,fam);
+    res.json(dcf);
+    console.log(dcf);
+}
 
 module.exports = {
     getArticulo,
     saveArticulo,
     updateArticulo,
     deleteArticulo,
-    getArticuloBySku
+    getArticuloBySku,
+    articuloGetDepClsFam
 }

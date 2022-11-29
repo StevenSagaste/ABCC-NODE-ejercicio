@@ -4,58 +4,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/form.css">
     <title>Alta</title>
 </head>
 <body>
-    <h1>Formulario de Alta</h1>
+    <div class="title">
+        <h1>Formulario de Alta</h1>
+    </div>
     <div class="container">
-        <form class="formulario">
+        <form class="formulario" onsubmit="guardarArticulo();return false"  >
             <label for="sku">Sku</label>
-            <input type="text" name="sku" id="sku">
+            <input type="text" name="sku" id="sku"  maxlength="6" minlength="6" required>
             <input type="button" id="verificador" value="verificar" onclick="verificar()">
             <br>
-            <input type="checkbox" name="desc" disabled>
             <label for="desc">Descontinuado</label>
+            <input type="checkbox" placeholder="Descontinuado" name="desc" disabled>
             <br>
             <label for="articulo">Artículo</label>
-            <input type="text" name="articulo" id="articulo" disabled required>
+            <input type="text" name="articulo"   id="articulo"    maxlength="15" disabled required>
             <br>
             <label for="marca">Marca</label>
-            <input type="text" name="marca" id="marca" disabled required>
+            <input type="text" name="marca"      id="marca"       maxlength="15" disabled required>
             <br>
             <label for="modelo">Modelo</label>
-            <input type="text" name="modelo" id="modelo" disabled required>
+            <input type="text" name="modelo"     id="modelo"      maxlength="20" disabled required>
             <br>
             <label for="departamento"    >Departamento</label>
-            <select name="departamento"  id="departemento"      disabled required onchange="obtenerClases()">abc</select>
+            <select name="departamento"  id="departemento"      disabled required onchange="obtenerClases()"></select>
             <br>
             <label for="clase"           >Clase</label>
-            <select name="clase"         id="clase"             disabled required onchange="obtenerFamilias()">abc</select>
+            <select name="clase"         id="clase"             disabled required onchange="obtenerFamilias()"></select>
             <br>
             <label for="familia"         >Familia</label>
-            <select name="familia"       id="familia"           disabled required onchange="enableStockCant()">abc</select>
+            <select name="familia"       id="familia"           disabled required onchange="ableStockCant()"></select>
             <br>
             <col>
             <label for="stock"      >Stock</label>
-            <input type="number"    name="stock"        id="stock"      disabled    value="0" required>
+            <input type="number"    name="stock"        id="stock"     min="1"  max="999999999"  disabled    value="0" required>
+            <br>
             <label for="cantidad"   >Cantidad</label>
-            <input type="number"    name="cantidad"     id="cantidad"   disabled    value="0" required>
+            <input type="number"    name="cantidad"     id="cantidad"  min="1"  max="999999999"  disabled    value="0" required>
             <br>
             <label for="fechaAlta">Fecha Alta</label>
             <input type="date" name="fechaAlta" id="fechaAlta" disabled>
+            <br>
             <label for="fechaBaja">Fecha Baja</label>
             <input type="date" name="fechaBaja" id="fechaBaja" disabled>
             <br>
             <!-- <input id="guardar" type="button" onclick="guardarArticulo()" value="Guardar" disabled> -->
+            <button type="submit" id="guardar" disabled>Guardar</button>
+            <button id="cancelar" type="button" onclick="reload()" disabled>Cancelar</button>
         </form>
-        <button type="submit" id="guardar" onclick="guardarArticulo()" disabled>Guardar</button>
-        <button id="cancelar" onclick="cancelar()" disabled>Cancelar</button>
-        <form action=""></form>
     </div>
-    <script src="../js/index.js"></script>
-    <script src="../js/alta.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
+    <div class="title">
+        <a class="navlist" href="../index.html">Regresar al Menu</a>
+    </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
             integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous"></script> -->
+    <script src="../js/a.js"></script>
 </body>
 </html>

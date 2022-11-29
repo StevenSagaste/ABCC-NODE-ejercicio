@@ -4,50 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="../css/form.css">
     <title>Baja</title>
 </head>
 <body>
-    <h1>Formulario de Baja</h1>
+    <div class="title">
+        <h1>Formulario de Baja</h1>
+    </div>
     <div class="container">
-        <form class="formulario">
+        <form class="formulario" onsubmit="eliminarArticulo();return false"  >
             <label for="sku">Sku</label>
-            <input type="text" name="sku">
+            <input type="text" name="sku" id="sku"  maxlength="6" minlength="6" required>
+            <input type="button" id="verificador" value="buscar" onclick="verificar()">
             <br>
-            <input type="checkbox" name="desc" disabled>
-            <label for="desc">Descontinuado</label>
-            <br>
-            <label for="articulo">Artículo</label>
-            <input type="text" name="articulo" disabled>
-            <br>
-            <label for="marca">Marca</label>
-            <input type="text" name="marca" disabled>
-            <br>
-            <label for="modelo">Modelo</label>
-            <input type="text" name="modelo" disabled>
-            <br>
-            <label for="departamento">Departamento</label>
-            <select name="departamento" id="departemento" disabled></select>
-            <br>
-            <label for="clase">Clase</label>
-            <select name="clase" id="clase" disabled></select>
-            <br>
-            <label for="familia">Familia</label>
-            <select name="familia" id="familia" disabled></select>
-            <br>
-            <col>
-            <label for="stock">Stock</label>
-            <input type="number" name="stock" id="stock" disabled>
-            <label for="cantidad">Cantidad</label>
-            <input type="number" name="cantidad" id="cantidad" disabled>
-            <br>
-            <label for="fechaAlta">Fecha Alta</label>
-            <input type="date" name="fechaAlta" id="fechaAlta" disabled>
-            <label for="fechaBaja">Fecha Baja</label>
-            <input type="date" name="fechaBaja" id="fechaBaja" disabled>
-            <br>
-            <button disabled>Eliminar</button>
+            <div id="res"></div>
+            <button type="submit" id="Eliminar" disabled>Eliminar</button>
         </form>
     </div>
+    <div class="title">
+        <a class="navlist" href="../index.html">Regresar al Menu</a>
+    </div>
+    <script src="../js/b.js"></script>
 </body>
 </html>

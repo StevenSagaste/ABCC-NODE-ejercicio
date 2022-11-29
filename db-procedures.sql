@@ -122,3 +122,16 @@ CREATE DEFINER=`user`@`host` PROCEDURE `get_famByClass`(
 BEGIN
  SELECT * FROM `mydb2`.familia WHERE `mydb2`.familia.clase=p_cls;
 END
+
+------------------------------------------------------------------------------------------------
+-- DEPARTAMENTO, CLASE Y FAMILIA
+------------------------------------------------------------------------------------------------
+
+CREATE DEFINER=`USER`@`host` PROCEDURE `get_DepClsFam`(
+	p_dep INT(1),
+	p_cls INT(2),
+	p_fam INT(3)
+)
+BEGIN
+select `mydb2`.departamento.departamento,`mydb2`.clase.clase,`mydb2`.familia.familia FROM `mydb2`.departamento,`mydb2`.clase,`mydb2`.familia WHERE `mydb2`.departamento.id = p_dep AND `mydb2`.clase.id = p_cls AND `mydb2`.familia.id = p_fam;
+END
